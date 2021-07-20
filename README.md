@@ -6,7 +6,7 @@ This repo demonstrates [Markdown Embed Code From File](https://github.com/market
 
 This would helps testing for your code within readme (actually for markdown).
 
-You could put code in external file and test them, as same as ordinary testing your code. You don't need copy & paste code and feel anxisous about compatibility anymore.
+You could put code in external file and test them, as same as ordinary testing your code. You don't need copy & paste code and feel anxious about compatibility anymore.
 
 ## Mark your code for embedding
 
@@ -15,8 +15,6 @@ This action could inspect your code, if you add a file path in code block as "\`
 The following code block has a file path `src/helloworld.py`:
 
 ```python:src/helloworld.py
-
-
 ```
 
 See [src/helloworld.py](./src/helloworld.py) as:
@@ -42,31 +40,26 @@ Let's try demonstration in your repository as follows:
 
 You might add specific lines from one file (ex. [src/mul.py](./src/mul.py)).
 
-This action supports this with the syntax as "\`\`\`lang:external/file/path.py [start:end]\`\`\`" for it:
+This action supports this with the syntax as follows:
+````
+```lang:external/file/path.py [start:end]
+
+``` 
+````
+` ```py:src/mul.py [3-4] ` gets:
 
 ```py:src/mul.py [3-4]
-def multiple(x):
-    return pow(x, 2)
 ```
 
 ### Multiple use
 
 You might add one file path (ex. [src/mul.py](./src/mul.py)) for multiple code blocks:
 
-```py:src/mul.py
-from math import pow
-
-def multiple(x):
-    return pow(x, 2)
-```
+`` ```py:src/mul.py ``
 
 It works!:
 
 ```py:src/mul.py
-from math import pow
-
-def multiple(x):
-    return pow(x, 2)
 ```
 
 However, the other is not available.
@@ -79,14 +72,13 @@ Notice that this action goes to "fail" if a file you add does not exist.
 
 This action could work for any programming "language".
 
-Ideally you could write as "\`\`\`lang:external/file/path.py\`\`\`", but actually this action does not inspect "lang", just read path and copy&paste strings into target code block in markdown.
+Ideally you could write as `` ```lang:external/file/path.py ``, but actually this action does not inspect "lang", just read path and copy&paste strings into target code block in markdown.
 
 So, missing "lang" is available:
 
-```:src/helloworld.sh
-#!/bin/bash
+`` ```:src/helloworld.sh ``
 
-echo "hello"
+```:src/helloworld.sh
 ```
 
 ## Formatting
